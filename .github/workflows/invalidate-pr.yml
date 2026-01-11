@@ -15,6 +15,7 @@ jobs:
       with:
         app-id: ${{ secrets.APP_ID }}
         private-key: ${{ secrets.PRIVATE_KEY }}
+        repositories: poc2orch
     - name: Dispatch invalidate
       run: |
         gh api /repos/${{ github.repository_owner }}/poc2orch/dispatches -f event_type=invalidate -f client_payload[action]=invalidate -f client_payload[branch]=${{ github.head_ref }}
